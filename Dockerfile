@@ -1,4 +1,4 @@
-# Estágio 1: Build da aplicação com Maven
+# Build da aplicação com Maven
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
@@ -6,6 +6,7 @@ WORKDIR /app
 COPY pom.xml .
 COPY .mvn/ .mvn/
 COPY mvnw .
+RUN chmod +x mvnw
 
 # Baixa as dependências
 RUN mvn dependency:go-offline
@@ -14,11 +15,11 @@ RUN mvn dependency:go-offline
 COPY src ./src
 RUN mvn package -DskipTests
 
-# Estágio 2: Criação da imagem final otimizada
+# Criação da imagem
 FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
-# Copia o JAR da aplicação do estágio de build
+# Copia o .jar da aplicação
 COPY --from=build /app/target/*.jar app.jar
 
 # Expõe a porta em que a aplicação roda
