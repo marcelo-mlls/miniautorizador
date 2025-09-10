@@ -3,6 +3,7 @@ package com.vr.miniautorizador.controller;
 import com.vr.miniautorizador.dto.CardRequest;
 import com.vr.miniautorizador.dto.CardResponse;
 import com.vr.miniautorizador.service.CardService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 
+@Tag(name = "cartoes")
 @RestController
 @RequestMapping("/cartoes")
 @RequiredArgsConstructor

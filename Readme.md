@@ -4,9 +4,10 @@ Este é um projeto de um mini autorizador de transações para a VR Benefícios,
 
 ## Tecnologias Utilizadas
 
-*   **Java 21**: Versão mais recente do Java.
-*   **Spring Boot 3**: Framework principal para o desenvolvimento da aplicação.
+*   **Java 21**: Versão do Java.
+*   **Spring Boot 3**: Framework de desenvolvimento da aplicação.
 *   **Maven**: Gerenciador de dependências.
+*   **Swagger**: Documentação da API.
 *   **MySQL**: Banco de dados relacional para persistência dos dados dos cartões.
 *   **JPA (Hibernate)**: Framework de persistência.
 *   **Docker & Docker Compose**: Para a execução da aplicação e do banco de dados em contêineres.
@@ -99,6 +100,10 @@ A API utiliza autenticação **Basic**. As credenciais padrão estão configurad
         *   `SALDO_INSUFICIENTE`
         *   `SENHA_INVALIDA`
         *   `CARTAO_INEXISTENTE`
+
+## Acesso via swagger 
+
+Para acessar documentação da API basta acessar via browser em http://localhost:8080/swagger-ui/index.html
 
 ## Decisões de Projeto e Desafios
 

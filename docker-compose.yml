@@ -12,20 +12,6 @@ services:
   #   volumes:
   #     - ./scripts/init.js:/docker-entrypoint-initdb.d/init.js:ro
 
-  app:
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      mysql:
-        condition: service_healthy
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/miniautorizador
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=
-      - SPRING_SECURITY_USER_NAME=username
-      - SPRING_SECURITY_USER_PASSWORD=password
-
   mysql:
     image: mysql:5.7
     hostname: mysql
@@ -41,3 +27,17 @@ services:
       MYSQL_DATABASE: miniautorizador
       MYSQL_ROOT_PASSWORD:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/miniautorizador
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_SECURITY_USER_NAME=username
+      - SPRING_SECURITY_USER_PASSWORD=password
