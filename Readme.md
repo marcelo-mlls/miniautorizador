@@ -29,7 +29,7 @@ Este é um projeto de um mini autorizador de transações para a VR Benefícios,
 
 Para parar todos os serviços, execute:
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ## Autenticação
