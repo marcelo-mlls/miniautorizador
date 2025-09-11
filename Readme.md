@@ -15,7 +15,7 @@ Este é um projeto de um mini autorizador de transações para a VR Benefícios,
 ## Como Executar a Aplicação
 
 1.  **Pré-requisitos**:
-    *   Docker e Docker Compose
+    *   Docker e Docker Compose instalados.
 
 2.  **Inicie a aplicação e o banco de dados**:
     Na raiz do projeto, execute o seguinte comando:
@@ -29,9 +29,9 @@ Este é um projeto de um mini autorizador de transações para a VR Benefícios,
     *   Colocará ambos os contêineres na mesma rede, permitindo que a aplicação se conecte ao banco.
 
 Para parar todos os serviços, execute:
-```bash
-docker compose down
-```
+    ```bash
+    docker compose down
+    ```
 
 ## Autenticação
 
@@ -79,7 +79,7 @@ A API utiliza autenticação **Basic**. As credenciais padrão estão configurad
         ```
     *   **404 Not Found**: Cartão não encontrado.
 
-### Realizar uma Transação
+### Realizar um débito no cartão
 
 *   **Method**: `POST`
 *   **URL**: `/transacoes`
@@ -101,9 +101,19 @@ A API utiliza autenticação **Basic**. As credenciais padrão estão configurad
         *   `SENHA_INVALIDA`
         *   `CARTAO_INEXISTENTE`
 
-## Acesso via swagger 
+## Acesso via Swagger
 
-Para acessar documentação da API basta acessar via browser em http://localhost:8080/swagger-ui/index.html
+A documentação completa da API, incluindo todos os endpoints, está disponível via Swagger UI. Após iniciar a aplicação, acesse:
+
+    http://localhost:8080/swagger-ui/index.html
+
+
+## Testes Automatizados
+
+O projeto possui testes unitários e de integração. Para executá-los, utilize o Maven Wrapper:
+    ```bash
+    ./mvnw test
+    ```
 
 ## Decisões de Projeto e Desafios
 
@@ -122,11 +132,4 @@ O desafio de construir a solução sem o uso de `if` foi abordado utilizando con
 *   **`Predicate`**: Para encapsular a lógica de validação de senha e saldo. O resultado do predicado é usado para decidir se uma exceção deve ser lançada, evitando um `if` explícito.
 *   **Exceções**: O fluxo de controle para cenários de erro é gerenciado através de exceções customizadas, que são capturadas por um `GlobalExceptionHandler`.
 
-## Testes Automatizados
 
-O projeto possui cobertura de testes, com testes unitários para a camada de serviço e testes de integração para os controllers.
-
-Para executar os testes, utilize o comando:
-```bash
-./mvnw test
-```
