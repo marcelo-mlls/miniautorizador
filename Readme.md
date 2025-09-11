@@ -19,19 +19,19 @@ Este é um projeto de um mini autorizador de transações para a VR Benefícios,
 
 2.  **Inicie a aplicação e o banco de dados**:
     Na raiz do projeto, execute o seguinte comando:
-    ```bash
-    docker compose up -d --build
-    ```
-    Este comando fará o seguinte:
-    *   Construirá a imagem Docker da aplicação a partir do `Dockerfile`.
-    *   Iniciará um contêiner para a aplicação.
-    *   Iniciará um contêiner para o banco de dados MySQL.
-    *   Colocará ambos os contêineres na mesma rede, permitindo que a aplicação se conecte ao banco.
+```bash
+docker compose up -d --build
+```
+Este comando fará o seguinte:
+*   Construirá a imagem Docker da aplicação a partir do `Dockerfile`.
+*   Iniciará um contêiner para a aplicação.
+*   Iniciará um contêiner para o banco de dados MySQL.
+*   Colocará ambos os contêineres na mesma rede, permitindo que a aplicação se conecte ao banco.
 
 Para parar todos os serviços, execute:
-    ```bash
-    docker compose down
-    ```
+```bash
+docker compose down
+```
 
 ## Autenticação
 
@@ -111,9 +111,10 @@ A documentação completa da API, incluindo todos os endpoints, está disponíve
 ## Testes Automatizados
 
 O projeto possui testes unitários e de integração. Para executá-los, utilize o Maven Wrapper:
-    ```bash
-    ./mvnw test
-    ```
+
+```bash
+  ./mvnw test
+```
 
 ## Decisões de Projeto e Desafios
 
