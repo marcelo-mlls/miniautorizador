@@ -1,4 +1,4 @@
-# Mini Autorizador VR
+# Mini Autorizador
 
 Este é um projeto de um mini autorizador de transações.
 
@@ -116,15 +116,13 @@ O projeto possui testes unitários e de integração. Para executá-los, utilize
   ./mvnw test
 ```
 
-## Decisões de Projeto e Desafios
-
 ### Tratamento de Concorrência
 
 Para garantir a consistência dos dados em um ambiente com múltiplas transações concorrentes, foi utilizada a estratégia de **locking pessimista** (`PESSIMISTIC_WRITE`) do JPA.
 
 Quando uma transação de débito é iniciada, a linha do cartão correspondente no banco de dados é bloqueada. Qualquer outra transação que tente ler ou modificar o mesmo cartão ficará em espera até que a primeira transação seja concluída (commit ou rollback). Isso evita condições de corrida, como duas transações debitando o mesmo saldo simultaneamente.
 
-### Desafio "Sem ifs"
+### "Sem ifs"
 
 O desafio de construir a solução sem o uso de `if` foi abordado utilizando construções da programação funcional e o sistema de exceções do Java:
 
@@ -132,6 +130,7 @@ O desafio de construir a solução sem o uso de `if` foi abordado utilizando con
 *   **`Optional.orElseThrow()`**: Para obter um objeto `Optional` ou lançar uma exceção caso ele esteja vazio.
 *   **`Predicate`**: Para encapsular a lógica de validação de senha e saldo. O resultado do predicado é usado para decidir se uma exceção deve ser lançada, evitando um `if` explícito.
 *   **Exceções**: O fluxo de controle para cenários de erro é gerenciado através de exceções customizadas, que são capturadas por um `GlobalExceptionHandler`.
+
 
 
 
