@@ -1,6 +1,6 @@
 # Mini Autorizador VR
 
-Este é um projeto de um mini autorizador de transações para a VR Benefícios, desenvolvido como parte de um processo seletivo.
+Este é um projeto de um mini autorizador de transações.
 
 ## Tecnologias Utilizadas
 
@@ -132,5 +132,6 @@ O desafio de construir a solução sem o uso de `if` foi abordado utilizando con
 *   **`Optional.orElseThrow()`**: Para obter um objeto `Optional` ou lançar uma exceção caso ele esteja vazio.
 *   **`Predicate`**: Para encapsular a lógica de validação de senha e saldo. O resultado do predicado é usado para decidir se uma exceção deve ser lançada, evitando um `if` explícito.
 *   **Exceções**: O fluxo de controle para cenários de erro é gerenciado através de exceções customizadas, que são capturadas por um `GlobalExceptionHandler`.
+
 
 
